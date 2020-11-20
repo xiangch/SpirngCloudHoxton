@@ -2,6 +2,7 @@ package cn.com.do1cloud.example.service;
 
 import cn.com.do1cloud.example.api.EchoService;
 import org.apache.dubbo.config.annotation.DubboService;
+import org.apache.dubbo.rpc.RpcContext;
 
 /**
  * @author zengxc
@@ -11,6 +12,8 @@ import org.apache.dubbo.config.annotation.DubboService;
 public class EchoServiceImpl implements EchoService {
     @Override
     public String echo(String message) {
-        return "[echo] Hello, " + message;
+        RpcContext context = RpcContext.getContext();
+
+        return context.get("token")+" [echo] Hello, " + message;
     }
 }

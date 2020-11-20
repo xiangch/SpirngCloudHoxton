@@ -23,10 +23,11 @@ dubbo:
     port: -1
   registry:
     # 挂载到 Spring Cloud 注册中心
-    address: spring-cloud://localhost
+    address: nacos://127.0.0.1:8848
   cloud:
-    subscribed-services: provider
+    subscribed-services: provider,do1cloud-authorization
+  consumer:
+    check: false
+    filter: setTokenFilter
 
-restart:
-  include:
-    projectcommon: "/spring-cloud-openfeign-[\\w.-]+.jar"
+

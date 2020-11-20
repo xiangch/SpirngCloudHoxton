@@ -15,16 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class IndexController {
     @DubboReference
     private EchoService echoService;
-   // @Autowired
-   // private AuthDepartmentClient departmentClient;
+
 
     @RequestMapping(value = "/echo/{str}", method = RequestMethod.GET)
     public String echo(@PathVariable String str) {
         return echoService.echo(str);
     }
-    @RequestMapping(value = "/dept/{id}", method = RequestMethod.GET)
-    public String queryDepartmentId(@PathVariable String id) {
-        //return departmentClient.queryDepartmentInfo(id).getMsg();
-        return null;
-    }
+
 }
