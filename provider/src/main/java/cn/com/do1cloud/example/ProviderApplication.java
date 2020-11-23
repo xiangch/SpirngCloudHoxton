@@ -11,7 +11,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@DubboComponentScan
 public class ProviderApplication {
 
     public static void main(String[] args) {

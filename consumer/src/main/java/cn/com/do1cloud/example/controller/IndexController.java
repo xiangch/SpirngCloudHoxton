@@ -1,6 +1,7 @@
 package cn.com.do1cloud.example.controller;
 
 import cn.com.do1cloud.example.api.EchoService;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +20,7 @@ public class IndexController {
 
     @RequestMapping(value = "/echo/{str}", method = RequestMethod.GET)
     public String echo(@PathVariable String str) {
-            return echoService.echo(str);
+            return JSONObject.toJSONString(echoService.echo(str));
     }
 
 }

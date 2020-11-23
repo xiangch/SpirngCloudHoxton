@@ -6,5 +6,5 @@ package cn.com.do1cloud.example.api;
  */
 public interface EchoService {
 
-    String echo(String message);
+    FeignResult<String> echo(String message);
 }
