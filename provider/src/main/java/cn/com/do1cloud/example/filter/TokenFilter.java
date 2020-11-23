@@ -20,6 +20,7 @@ public class TokenFilter  implements Filter {
         Map<String, Object> attachments = invocation.getObjectAttachments();
         String remoteToken = (attachments == null ? null : (String) attachments.get(TOKEN_KEY));
         RpcContext.getContext().set(TOKEN_KEY,remoteToken);
+
         return invoker.invoke(invocation);
     }
 }

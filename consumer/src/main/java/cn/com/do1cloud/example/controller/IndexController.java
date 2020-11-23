@@ -19,7 +19,7 @@ public class IndexController {
 
     @RequestMapping(value = "/echo/{str}", method = RequestMethod.GET)
     public String echo(@PathVariable String str) {
-        return echoService.echo(str);
+            return echoService.echo(str);
     }
 
 }

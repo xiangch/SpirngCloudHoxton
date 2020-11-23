@@ -4,6 +4,8 @@ spring:
   application:
     name: consumer
   cloud:
+    inetutils:
+      preferred-networks: 192.168
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
