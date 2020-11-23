@@ -1,2 +1,1 @@
-tokenFilter=cn.com.do1cloud.example.filter.TokenFilter
-resultFilter=cn.com.do1cloud.example.filter.ResultFilter
+exceptionResolver=cn.com.do1cloud.example.filter.ExceptionResolver

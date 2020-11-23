@@ -7,6 +7,9 @@ import org.apache.dubbo.rpc.RpcContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static cn.com.do1cloud.example.api.Constants.TENANT_ID;
+
+
 /**
  * @author zengxc
  * @since 2020/11/13
@@ -22,9 +25,9 @@ public class EchoServiceImpl implements EchoService {
         if("error".equals(message)){
             throw new RestException(1,"error msg","sssss");
         }
-
+        String token  =(String) RpcContext.getContext().getObjectAttachments().get(TENANT_ID);
         FeignResult result = new FeignResult();
-        result.setData("["+context.get("token")+"] Hello, " + message);
+        result.setData("["+token+"] Hello, " + message);
         return result;
     }
 }

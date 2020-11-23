@@ -2,12 +2,8 @@ package cn.com.do1cloud.example.filter;
 
 import cn.com.do1cloud.example.api.FeignResult;
 import cn.com.do1cloud.example.api.RestException;
-import com.google.common.collect.Maps;
-import javafx.beans.binding.ObjectBinding;
 import org.apache.dubbo.common.extension.Activate;
 import org.apache.dubbo.rpc.*;
-
-import java.util.Map;
 
 import static org.apache.dubbo.common.constants.CommonConstants.PROVIDER;
 
@@ -16,7 +12,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.PROVIDER;
  * @since 2020/11/20
  */
 @Activate(group =PROVIDER )
-public class ResultFilter implements Filter {
+public class ExceptionResolver implements Filter {
 
     @Override
     public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {

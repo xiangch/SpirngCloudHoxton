@@ -1,1 +1,1 @@
-setTokenFilter=cn.com.do1cloud.example.filter.SetTokenFilter
+setTenant=cn.com.do1cloud.example.filter.SetTenantFilter
