@@ -3,6 +3,7 @@ package cn.com.do1cloud.example.filter;
 import cn.com.do1cloud.example.api.FeignResult;
 import cn.com.do1cloud.example.api.RestException;
 import org.apache.dubbo.common.extension.Activate;
+import org.apache.dubbo.config.spring.ServiceBean;
 import org.apache.dubbo.rpc.*;
 
 import static org.apache.dubbo.common.constants.CommonConstants.PROVIDER;
