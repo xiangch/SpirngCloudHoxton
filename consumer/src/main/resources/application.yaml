@@ -9,6 +9,6 @@ dubbo:
   registry:
     address: nacos://local143:8848
   cloud:
-    subscribed-services: provider,do1cloud-authorization
+    subscribed-services: provider
   consumer:
     check: false
