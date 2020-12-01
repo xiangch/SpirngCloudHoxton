@@ -1,7 +1,8 @@
 package cn.com.do1cloud.example.service;
 
-import cn.com.do1cloud.example.api.*;
-import org.apache.dubbo.config.annotation.DubboReference;
+import cn.com.do1cloud.example.api.EchoService;
+import cn.com.do1cloud.example.api.FeignResult;
+import cn.com.do1cloud.example.api.RestException;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.apache.dubbo.rpc.RpcContext;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +26,7 @@ public class EchoServiceImpl implements EchoService {
         if("error".equals(message)){
             throw new RestException(1,"error msg","sssss");
         }
-        String token  =(String) RpcContext.getContext().getObjectAttachments().get(TENANT_ID);
+        String token  = RpcContext.getContext().getAttachment(TENANT_ID);
         FeignResult result = new FeignResult();
         result.setData("["+token+"] Hello, " + message);
         return result;

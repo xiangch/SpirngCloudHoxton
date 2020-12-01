@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: $APP_NAME
+    component: $APP_NAME
+  name: $APP_NAME
+  namespace: $SERVICE_NAMESPACE
+spec:
+  ports:
+    - name: http
+      port: $SERVER_PORT
+      protocol: TCP
+      targetPort: $SERVER_PORT
+  selector:
+    app: $APP_NAME
+    component: $APP_NAME
+    tier: backend
+  sessionAffinity: None

@@ -36,18 +36,7 @@
             <artifactId>spring-cloud-hoxton-api</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!-- feign
-        <dependency>
-            <groupId>cn.com.do1.do1cloud</groupId>
-            <artifactId>do1cloud-authorization-client-root</artifactId>
-            <version>2.1.2-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.com.do1.do1cloud</groupId>
-            <artifactId>do1cloud-authorization-client</artifactId>
-            <version>2.1.2-SNAPSHOT</version>
-        </dependency>
-        -->
+
         <dependency>
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-httpclient</artifactId>
@@ -58,13 +47,6 @@
             <scope>compile</scope>
         </dependency>
 
-        <!-- licenses-->
-        <dependency>
-            <groupId>cn.com.do1.vajra</groupId>
-            <artifactId>vajra-rt-dsf-license</artifactId>
-            <version>${dsf.component.version}</version>
-            <scope>compile</scope>
-        </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>

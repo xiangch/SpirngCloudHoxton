@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: $APP_NAME
+    component: $APP_NAME
+    tier: backend
+  name: $APP_NAME
+  namespace: $SERVICE_NAMESPACE
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  selector:
+    matchLabels:
+      app: $APP_NAME
+      component: $APP_NAME
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: $APP_NAME
+        component: $APP_NAME
+        tier: backend
+    spec:
+      containers:
+        - env:
+          image: $REGISTRY/$DOCKER_NAMESPACE/$APP_NAME:SNAPSHOT-$BRANCH-$TIME_TAG
+          volumeMounts:
+            - mountPath: /do1cloud
+              name: data
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: $SERVER_PORT
+              scheme: HTTP
+            timeoutSeconds: 10
+            failureThreshold: 30
+            periodSeconds: 3
+            initialDelaySeconds: 250
+            successThreshold: 1
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: $SERVER_PORT
+              scheme: HTTP
+            timeoutSeconds: 10
+            failureThreshold: 30
+            periodSeconds: 3
+            initialDelaySeconds: 250
+            successThreshold: 1
+          imagePullPolicy: Always
+          name: $APP_NAME
+          ports:
+            - containerPort: $SERVER_PORT
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 2
+              memory: 2048Mi
+            requests:
+              cpu: 300m
+              memory: 256Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      imagePullSecrets:
+        - name: $DOCKER_CREDENTIALS_ID
+      volumes:
+        - name: data
+          emptyDir: {}
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
