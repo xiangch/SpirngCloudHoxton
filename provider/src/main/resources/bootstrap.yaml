@@ -7,9 +7,6 @@ spring:
     active: local
   main:
     allow-bean-definition-overriding: true
-  cloud:
-    inetutils:
-      preferred-networks: 192.168
     nacos:
       discovery:
         server-addr: local143:8848
