@@ -18,6 +18,8 @@ ENV LOG_FILE "logs/app.log"
 #服务端口
 ENV SERVER_PORT $SERVER_PORT
 
+ENV DUBBO_ADDRESS $DUBBO_ADDRESS
+
 #设置时区
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
