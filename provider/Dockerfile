@@ -34,4 +34,4 @@ ADD  $DOWNLOAD_URL/$LICENSE_NAME ${WORK_PATH}
 
 RUN sh -c 'touch ${WORK_PATH}/app.jar'
 
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS $AGENT_OPS -Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom  -Ddubbo.registry.address=nacos://$NACOS_ADDRESS -Dspring.cloud.nacos.discovery.server-add=$NACOS_ADDRESS -Dspring.cloud.nacos.config.server-addr=$NACOS_ADDRESS -Dserver.port=$SERVER_PORT  -Duser.timezone=GMT+08 -jar $WORK_PATH/app.jar " ]
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS $AGENT_OPS -Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom  -Ddubbo.registry.address=nacos://$NACOS_ADDRESS -Dspring.cloud.nacos.discovery.server-addr=$NACOS_ADDRESS -Dspring.cloud.nacos.config.server-addr=$NACOS_ADDRESS -Dserver.port=$SERVER_PORT  -Duser.timezone=GMT+08 -jar $WORK_PATH/app.jar " ]
