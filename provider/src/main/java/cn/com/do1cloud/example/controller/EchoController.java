@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RefreshScope
 public class EchoController {
-    @Value("${user.name}")
+    @Value("${user.name:zxc}")
     private String userName;
-    @Value("${user.age}")
+    @Value("${user.age:18}")
     private Integer age;
-    @Value("${app.version}")
+    @Value("${app.version:v1.0}")
     private String version;
     @DubboReference
     private UserService userService;

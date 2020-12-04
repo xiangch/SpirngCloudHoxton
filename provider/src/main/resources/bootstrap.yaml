@@ -13,9 +13,7 @@ spring:
         server-addr: local143:8848
       config:
         server-addr: local143:8848
-        shared-configs:
-          - data-id: global.properties
-            refresh: true
+
 
 
 
